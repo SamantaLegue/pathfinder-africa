@@ -1,6 +1,6 @@
 // Service worker: saves the app on the phone so it opens without internet.
 // When you change any file, raise the version number so phones download the new files.
-const CACHE = "pathfinder-v2";
+const CACHE = "pathfinder-v3";
 const FILES = [
   "./",
   "./index.html",
@@ -8,9 +8,9 @@ const FILES = [
   "./data.js",
   "./app.js",
   "./manifest.webmanifest",
-  "./icons/icon-192.png",
-  "./icons/icon-512.png",
-  "./icons/icon-maskable-512.png"
+  "./icon-192.png",
+  "./icon-512.png",
+  "./icon-maskable-512.png"
 ];
 
 self.addEventListener("install", event => {
