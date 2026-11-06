@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>PathFinder Africa</title>
+  <meta name="description" content="Discover your strengths, explore careers and make good decisions about school. English and French.">
+  <meta name="theme-color" content="#1f6b4a">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon-192.png" type="image/png">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="PathFinder">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Top bar: app name and language switch -->
+  <header class="topbar">
+    <div class="brand">
+      <svg width="24" height="24" viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="13" r="11" fill="none" stroke="currentColor" stroke-width="2"/><path d="M13 5 L16 13 L13 21 L10 13 Z" fill="var(--accent)"/></svg>
+      PathFinder
+    </div>
+    <div class="lang" role="group" aria-label="Language / Langue">
+      <button id="btn-en" aria-pressed="true">EN</button>
+      <button id="btn-fr" aria-pressed="false">FR</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Screen 1: Discover (quiz and results) -->
+    <section class="view" id="view-discover">
+      <div class="install card" id="installCard" hidden>
+        <div><b data-i18n="installTitle"></b><p data-i18n="installText"></p></div>
+        <div class="row"><button class="btn primary" id="installBtn" data-i18n="installBtn"></button><button class="btn ghost" id="installLater" data-i18n="installLater"></button></div>
+      </div>
+      <div class="hero">
+        <h1 data-i18n="heroTitle"></h1>
+        <p data-i18n="heroText"></p>
+      </div>
+      <div class="card" id="quiz" aria-live="polite"></div>
+    </section>
+
+    <!-- Screen 2: Decide (thinking about leaving school) -->
+    <section class="view" id="view-decide" hidden>
+      <div class="head">
+        <div class="kicker" data-i18n="decideKicker"></div>
+        <h1 data-i18n="decideTitle"></h1>
+        <p data-i18n="decideText"></p>
+      </div>
+      <div class="card">
+        <label for="situation" class="label" data-i18n="decideLabel"></label>
+        <select id="situation"></select>
+        <div class="stack" id="decideOut"></div>
+      </div>
+    </section>
+
+    <!-- Screen 3: Mentor -->
+    <section class="view" id="view-mentor" hidden>
+      <div class="head">
+        <div class="kicker" data-i18n="mentorKicker"></div>
+        <h1 data-i18n="mentorTitle"></h1>
+        <p data-i18n="mentorText"></p>
+      </div>
+      <div class="card stack" id="mentorOut"></div>
+      <div class="card">
+        <label for="msg" class="label" data-i18n="msgTitle"></label>
+        <textarea id="msg" readonly></textarea>
+        <div class="row center"><button class="btn primary" id="copyMsg" data-i18n="copy"></button><span class="note" id="copied" hidden></span></div>
+      </div>
+    </section>
+
+    <!-- Screen 4: Help, privacy, about -->
+    <section class="view" id="view-help" hidden>
+      <div class="head">
+        <div class="kicker" data-i18n="helpKicker"></div>
+        <h1 data-i18n="helpTitle"></h1>
+      </div>
+      <div class="card safety" data-i18n="safety"></div>
+      <div class="card">
+        <h2 data-i18n="privacyTitle"></h2>
+        <p data-i18n="privacy"></p>
+        <div class="row center"><button class="btn ghost" id="eraseBtn" data-i18n="eraseBtn"></button><span class="note" id="erased" hidden data-i18n="erased"></span></div>
+      </div>
+      <div class="card">
+        <h2 data-i18n="aboutTitle"></h2>
+        <p data-i18n="about"></p>
+        <p class="founder" data-i18n="founder"></p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Bottom tab bar -->
+  <nav class="tabs" aria-label="Sections">
+    <a href="#discover" data-tab="discover"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5 13.5 13.5 8.5 15.5 10.5 10.5Z"/></svg><span data-i18n="tabDiscover"></span></a>
+    <a href="#decide" data-tab="decide"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21V11M12 11 6 5M12 11l6-6M6 5v4M6 5h4M18 5v4M18 5h-4"/></svg><span data-i18n="tabDecide"></span></a>
+    <a href="#mentor" data-tab="mentor"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/><circle cx="17" cy="9" r="2.5"/><path d="M16 14.2c3 .2 5.5 2.3 5.5 5.8"/></svg><span data-i18n="tabMentor"></span></a>
+    <a href="#help" data-tab="help"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-8-4.8-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 6.2-8 11-8 11Z"/></svg><span data-i18n="tabHelp"></span></a>
+  </nav>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
